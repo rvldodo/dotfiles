@@ -1,0 +1,10 @@
+starship.toml
+bat
+fish
+iterm2
+nvim.backup
+nvim.backup.lazy
+silicon
+thefuck
+
+.DS_Store
