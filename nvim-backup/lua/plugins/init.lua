@@ -208,7 +208,15 @@ local default_plugins = {
 
   {
     "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    dependencies = { 
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-lua/plenary.nvim",
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+          build = "make",
+          enabled = true
+        }, {"nvim-telescope/telescope-file-browser.nvim", enabled = true}
+    },
     cmd = "Telescope",
     init = function()
       require("core.utils").load_mappings "telescope"
@@ -224,7 +232,13 @@ local default_plugins = {
       -- load extensions
       for _, ext in ipairs(opts.extensions_list) do
         telescope.load_extension(ext)
+        telescope.load_extension("fzf")
+        telescope.load_extension("file_browser")
       end
+
+      local map = vim.keymap.set
+
+      map("n", "-", ":Telescope file_browser<CR>")
     end,
   },
 

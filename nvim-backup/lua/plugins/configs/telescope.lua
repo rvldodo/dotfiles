@@ -117,7 +117,16 @@ local options = {
     },
   },
 
-  extensions_list = { "themes", "terms" },
+  extensions_list = { "themes", "terms", file_browser = {
+                    path = "%:p:h", -- open from within the folder of your current buffer
+                    display_stat = false, -- don't show file stat
+                    grouped = true, -- group initial sorting by directories and then files
+                    hidden = true, -- show hidden files
+                    hide_parent_dir = true, -- hide `../` in the file browser
+                    hijack_netrw = true, -- use telescope file browser when opening directory paths
+                    prompt_path = true, -- show the current relative path from cwd as the prompt prefix
+                    use_fd = true -- use `fd` instead of plenary, make sure to install `fd`
+  } },
 }
 
 return options

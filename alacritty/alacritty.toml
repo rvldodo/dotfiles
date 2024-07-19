@@ -24,13 +24,13 @@ position.y = 100
 
 startup_mode = "Windowed"
 
-opacity = 0.8
+opacity = 0.7
 # blur = true
 
 option_as_alt = "Both"
 
 [font]
-normal.family = "MesloLGS Nerd Font Mono"
+normal.family = "Hack Nerd Font Mono"
 
 size = 9.5
 
